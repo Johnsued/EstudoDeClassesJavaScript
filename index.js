@@ -1,23 +1,44 @@
-class cliente{
+class cliente {
     nome;
     cpf;
-    agencia;
-    saldo;
-    rg;
 }
 
- const cliente1 = new cliente();
- const cliente2 = new cliente();
+class ContaCorrente {
+    agencia;
+    saldo;
 
- cliente1.nome = "Ricardo";
- cliente1.cpf = 11122233309;
- cliente1.agencia = 1001;
- cliente1.saldo = 0;
- cliente1.rg = 5245289;
+    sacar(valor){
+        if(this.saldo >= valor){
+            this.saldo -= valor;//resultado após saque pelo cliente de 200$
+        }
+    }
+}
 
- cliente2.nome = "Alice";
- cliente2.cpf = 88822233309;
- cliente2.agencia = 1001;
- cliente2.saldo = 0;
 
-console.log(cliente1, cliente2);
+const cliente1 = new cliente();
+cliente1.nome = "Ricardo";
+cliente1.cpf = 11122233309;
+
+const cliente2 = new cliente();
+cliente2.nome = "Alice";
+cliente2.cpf = 88822233309;
+
+
+const contaCorrenteRicardo = new ContaCorrente();
+contaCorrenteRicardo.saldo = 0;
+contaCorrenteRicardo.agencia = 1001;
+
+
+console.log(contaCorrenteRicardo.saldo);//saldo inicial
+contaCorrenteRicardo.saldo = 100;// atribuição de saldo positivo
+console.log(contaCorrenteRicardo.saldo);//chamando saldo positivo
+contaCorrenteRicardo.sacar(50);//resultado após saque de 50 reais do saldo de 100 reais...
+
+
+
+
+
+console.log(contaCorrenteRicardo.saldo);
+console.log(cliente1);
+console.log(cliente2);
+console.log(contaCorrenteRicardo);
